@@ -1,8 +1,12 @@
 import type { MetadataRoute } from "next";
+import { headers } from "next/headers";
 import { site } from "@/lib/site";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
+  const headerList = await headers();
+  const host = headerList.get("host") || undefined;
+  const baseUrl = host ? `https://${host}` : site.url;
 
   const routes: {
     path: string;
@@ -19,10 +23,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   return routes.map((route) => ({
-    url: `${site.url}${route.path}`,
+    url: `${baseUrl}${route.path}`,
     lastModified: now,
     changeFrequency: route.changeFrequency,
     priority: route.priority,
   }));
 }
+
 

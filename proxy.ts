@@ -9,12 +9,20 @@ const SECURITY_HEADERS: Record<string, string> = {
 };
 
 export function proxy(request: NextRequest) {
+  const host = request.headers.get("host") || "";
+
+  // Canonicaliser le domaine : www → non-www
+  if (host.startsWith("www.")) {
+    const url = request.nextUrl.clone();
+    url.host = host.slice(4);
+    return NextResponse.redirect(url, 301);
+  }
+
   // Forcer HTTPS en production. Les plateformes type Vercel le font déjà ;
   // ceci sert de filet de sécurité pour tout autre hébergement.
   if (process.env.NODE_ENV === "production") {
     const proto = request.headers.get("x-forwarded-proto");
-    const host = request.headers.get("host");
-    if (proto && proto !== "https" && host) {
+    if (proto && proto !== "https") {
       const url = request.nextUrl.clone();
       url.protocol = "https:";
       return NextResponse.redirect(url, 308);
