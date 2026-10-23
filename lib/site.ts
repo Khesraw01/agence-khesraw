@@ -1,0 +1,21 @@
+export const site = {
+  brand: "Khesraw",
+  wordmark: "khesraw",
+  name: "Khesraw Sarwari",
+  role: "Agence web pour artisans",
+  tagline: "Sites web pour artisans du bâtiment",
+  description:
+    "Sites web rapides et optimisés SEO pour plombiers, électriciens et couvreurs. Prise de rendez-vous en ligne incluse.",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://khesraw.be",
+  phone: "0465 70 42 15",
+  phoneHref: "tel:+32465704215",
+  phoneInternational: "+32 465 70 42 15",
+  email: "bonjour@khesraw.be",
+  vat: "BE 0798.505.503",
+  country: "Belgique",
+  locality: "Bruxelles",
+  regions: ["Bruxelles", "Wallonie", "Flandre"],
+  trades: ["Plombier", "Électricien", "Couvreur"],
+  calUrl: process.env.NEXT_PUBLIC_CAL_URL ?? "",
+  gaId: process.env.NEXT_PUBLIC_GA_ID ?? "",
+} as const;
