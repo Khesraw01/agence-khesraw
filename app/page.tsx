@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { faq } from "@/lib/content";
+import { cities } from "@/lib/cities";
 import { site } from "@/lib/site";
 import { faqSchema } from "@/lib/schema";
 import JsonLd from "@/components/JsonLd";
@@ -177,6 +179,28 @@ export default function Home() {
             garantie reste : 10 appels en 3 mois, ou 3 mois offerts.
           </p>
         </div>
+      </section>
+
+      {/* VILLES */}
+      <section className="mx-auto max-w-[1200px] px-6 py-12 md:py-16">
+        <h2 className="text-center text-[28px] font-semibold tracking-tight text-midnight-ink md:text-[40px]">
+          Nos zones d&apos;intervention
+        </h2>
+        <p className="mx-auto mt-3 max-w-md text-center text-lg text-slate-caption">
+          Mouscron, Tournai, Courtrai, Lille et toute la Wallonie.
+        </p>
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
+          {cities.map((c) => (
+            <Link
+              key={c.slug}
+              href={c.path}
+              className="rounded-full border border-stone-divider bg-white px-5 py-2.5 text-sm font-medium text-slate-caption transition-colors hover:border-royal-signal hover:text-royal-signal"
+            >
+              {c.name}
+            </Link>
+          ))}
+        </div>
+        <SectionCta className="mt-10" />
       </section>
 
       {/* FAQ */}

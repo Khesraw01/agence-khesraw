@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { site } from "@/lib/site";
+import { cities } from "@/lib/cities";
 import { getLocale, t } from "@/lib/i18n";
 import { PhoneLink } from "@/components/buttons";
 
@@ -79,8 +80,19 @@ export default function Footer() {
                   {site.email}
                 </a>
               </li>
-              <li className="leading-relaxed">
-                {site.country} · {site.zones.join(", ")}
+              <li className="text-white/55">{site.country}</li>
+              <li>
+                <div className="flex flex-wrap gap-x-3 gap-y-1.5">
+                  {cities.map((c) => (
+                    <Link
+                      key={c.slug}
+                      href={c.path}
+                      className="text-white/70 transition-colors hover:text-white"
+                    >
+                      {c.name}
+                    </Link>
+                  ))}
+                </div>
               </li>
             </ul>
           </div>

@@ -45,6 +45,13 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-3">
+          <Link
+            href={locale === "nl" ? "/" : "/nl"}
+            className="hidden text-sm font-medium text-slate-caption transition-colors hover:text-royal-signal md:inline-flex"
+            aria-label="Changer de langue"
+          >
+            {locale === "nl" ? "FR" : "NL"}
+          </Link>
           <PhoneLink className="hidden text-[15px] font-semibold text-graphite-body transition-colors hover:text-royal-signal md:inline-flex" />
           <QuoteButton
             href={locale === "nl" ? "/nl/contact" : "/contact"}
