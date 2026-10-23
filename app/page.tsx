@@ -163,6 +163,22 @@ export default function Home() {
         <Guarantee />
       </section>
 
+      {/* AVIS */}
+      <section className="mx-auto max-w-[1200px] px-6 py-12 md:py-16">
+        <h2 className="text-center text-[28px] font-semibold tracking-tight text-midnight-ink md:text-[40px]">
+          Ils nous font confiance
+        </h2>
+        <div className="mx-auto mt-10 max-w-xl rounded-2xl border border-stone-divider bg-white p-8 text-center shadow-sm">
+          <p className="text-lg font-medium text-midnight-ink">
+            Premiers clients : bientôt
+          </p>
+          <p className="mt-2 text-[15px] text-slate-caption">
+            Les premiers avis clients arriveront ici. En attendant, votre
+            garantie reste : 10 appels en 3 mois, ou 3 mois offerts.
+          </p>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section className="mx-auto max-w-[1200px] px-6 py-12 md:py-16">
         <h2 className="text-center text-[28px] font-semibold tracking-tight text-midnight-ink md:text-[40px]">

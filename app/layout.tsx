@@ -3,13 +3,14 @@ import { Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { site } from "@/lib/site";
-import { localBusinessSchema } from "@/lib/schema";
+import { professionalServiceSchema } from "@/lib/schema";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import Analytics from "@/components/Analytics";
 import { FloatingCallButton } from "@/components/buttons";
 import JsonLd from "@/components/JsonLd";
+import HtmlLang from "@/components/HtmlLang";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -36,7 +37,14 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: site.name }],
   creator: site.name,
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    languages: {
+      "fr-BE": "/",
+      "nl-BE": "/nl",
+      "x-default": "/",
+    },
+  },
   openGraph: {
     type: "website",
     locale: "fr_BE",
@@ -94,7 +102,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <CookieBanner />
         <Analytics />
         <FloatingCallButton />
-        <JsonLd data={localBusinessSchema} />
+        <HtmlLang />
+        <JsonLd data={professionalServiceSchema} />
         <Script
           id="google-tag-manager"
           strategy="afterInteractive"

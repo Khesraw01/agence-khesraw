@@ -54,6 +54,7 @@ export async function POST(req: NextRequest) {
   const name = sanitize(body.name);
   const phone = sanitize(body.phone);
   const trade = sanitize(body.trade);
+  const ville = sanitize(body.ville);
   const message = sanitize(body.message);
   const offre = sanitize(body.offre);
 
@@ -70,7 +71,7 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  console.log("[contact] Nouvelle demande :", { name, phone, trade, message, offre });
+  console.log("[contact] Nouvelle demande :", { name, phone, trade, ville, message, offre });
 
   const webhookUrl = process.env.CONTACT_WEBHOOK_URL;
   if (webhookUrl) {
@@ -78,7 +79,7 @@ export async function POST(req: NextRequest) {
       await fetch(webhookUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, phone, trade, message, offre, ip }),
+        body: JSON.stringify({ name, phone, trade, ville, message, offre, ip }),
       });
     } catch {
       // Échec silencieux : on ne bloque pas la réponse utilisateur.

@@ -1,21 +1,21 @@
 import { site } from "./site";
 
-export const localBusinessSchema = {
+export const professionalServiceSchema = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "ProfessionalService",
   name: site.name,
   description: site.description,
   url: site.url,
   telephone: "+32465704215",
   email: site.email,
-  vatID: site.vat,
+  vatID: site.vatId,
   priceRange: "€€",
   address: {
     "@type": "PostalAddress",
     addressCountry: "BE",
     addressLocality: site.locality,
   },
-  areaServed: ["Belgique", "Bruxelles", "Wallonie", "Flandre"],
+  areaServed: site.areaServed,
 };
 
 export function serviceSchema(name: string, description: string) {
@@ -25,9 +25,9 @@ export function serviceSchema(name: string, description: string) {
     name,
     description,
     serviceType: name,
-    areaServed: ["Belgique", "Bruxelles", "Wallonie", "Flandre"],
+    areaServed: site.areaServed,
     provider: {
-      "@type": "LocalBusiness",
+      "@type": "ProfessionalService",
       name: site.name,
       telephone: "+32465704215",
       url: site.url,
@@ -64,4 +64,18 @@ export function offerSchema(
     })),
   };
 }
+
+export function breadcrumbSchema(items: { name: string; path: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: item.name,
+      item: `${site.url}${item.path}`,
+    })),
+  };
+}
+
 

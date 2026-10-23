@@ -45,6 +45,7 @@ export default function ContactForm({ offre = "" }: { offre?: string }) {
       name: String(data.get("name") ?? ""),
       phone: String(data.get("phone") ?? ""),
       trade: String(data.get("trade") ?? ""),
+      ville: String(data.get("ville") ?? ""),
       message: String(data.get("message") ?? ""),
       offre: String(data.get("offre") ?? ""),
     };
@@ -169,6 +170,20 @@ export default function ContactForm({ offre = "" }: { offre?: string }) {
             <p id="trade-error" className="mt-1.5 text-sm text-coral-lost">{errors.trade}</p>
           )}
         </div>
+      </div>
+
+      <div>
+        <label htmlFor="ville" className="mb-1.5 block text-sm font-medium text-graphite-body">
+          Ville <span className="text-ash-helper">(facultatif)</span>
+        </label>
+        <input
+          id="ville"
+          name="ville"
+          type="text"
+          autoComplete="address-level2"
+          placeholder="Mouscron, Tournai, Lille…"
+          className={fieldClass}
+        />
       </div>
 
       <div>

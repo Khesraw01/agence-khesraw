@@ -1,19 +1,18 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { site } from "@/lib/site";
+import { getLocale, t } from "@/lib/i18n";
 import { PhoneLink } from "@/components/buttons";
 
 const year = new Date().getFullYear();
 
-const nav = [
-  { href: "/", label: "Accueil" },
-  { href: "/site-web-plombier", label: "Site web plombier" },
-  { href: "/site-web-electricien", label: "Site web électricien" },
-  { href: "/site-web-couvreur", label: "Site web couvreur" },
-  { href: "/tarifs", label: "Tarifs" },
-  { href: "/contact", label: "Contact" },
-];
-
 export default function Footer() {
+  const pathname = usePathname();
+  const locale = getLocale(pathname);
+  const labels = t[locale];
+
   return (
     <footer className="bg-navy text-white">
       <div className="mx-auto max-w-[1200px] px-6 py-16">
@@ -33,9 +32,11 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold text-white/90">Navigation</h3>
+            <h3 className="text-sm font-semibold text-white/90">
+              {locale === "nl" ? "Navigatie" : "Navigation"}
+            </h3>
             <ul className="mt-4 space-y-2.5 text-sm text-white/70">
-              {nav.map((l) => (
+              {labels.footerNav.map((l) => (
                 <li key={l.href}>
                   <Link href={l.href} className="transition-colors hover:text-white">
                     {l.label}
@@ -46,16 +47,21 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold text-white/90">Informations</h3>
+            <h3 className="text-sm font-semibold text-white/90">{labels.footerInfo}</h3>
             <ul className="mt-4 space-y-2.5 text-sm text-white/70">
               <li>
                 <Link href="/mentions-legales" className="transition-colors hover:text-white">
-                  Mentions légales &amp; RGPD
+                  {labels.legal}
+                </Link>
+              </li>
+              <li>
+                <Link href="/confidentialite" className="transition-colors hover:text-white">
+                  {labels.privacy}
                 </Link>
               </li>
               <li>
                 <Link href="/sitemap.xml" className="transition-colors hover:text-white">
-                  Plan du site
+                  {labels.sitemap}
                 </Link>
               </li>
               <li className="text-white/55">TVA : {site.vat}</li>
@@ -63,7 +69,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold text-white/90">Contact</h3>
+            <h3 className="text-sm font-semibold text-white/90">{labels.footerContact}</h3>
             <ul className="mt-4 space-y-2.5 text-sm text-white/70">
               <li>
                 <PhoneLink className="transition-colors hover:text-white" />
@@ -74,7 +80,7 @@ export default function Footer() {
                 </a>
               </li>
               <li className="leading-relaxed">
-                {site.country} · {site.locality}
+                {site.country} · {site.zones.join(", ")}
               </li>
             </ul>
           </div>
@@ -82,14 +88,14 @@ export default function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs text-white/55 md:flex-row">
           <p>
-            © {year} {site.name}. Tous droits réservés.
+            © {year} {site.name}. {labels.rights}.
           </p>
           <div className="flex gap-5">
-            <Link href="/mentions-legales" className="transition-colors hover:text-white">
-              Confidentialité
+            <Link href="/confidentialite" className="transition-colors hover:text-white">
+              {labels.privacy}
             </Link>
             <Link href="/sitemap.xml" className="transition-colors hover:text-white">
-              Plan du site
+              {labels.sitemap}
             </Link>
           </div>
         </div>
@@ -97,3 +103,4 @@ export default function Footer() {
     </footer>
   );
 }
+

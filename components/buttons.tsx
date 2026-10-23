@@ -43,14 +43,16 @@ export function PhoneButton({
 
 export function QuoteButton({
   label = "Devis gratuit",
+  href = "/contact",
   className = "",
 }: {
   label?: string;
+  href?: string;
   className?: string;
 }) {
   return (
     <Link
-      href="/contact"
+      href={href}
       onClick={() => trackEvent("clic_devis")}
       className={`inline-flex items-center justify-center gap-2 rounded-full border border-royal-signal bg-snow-canvas px-7 py-3.5 text-[15px] font-medium text-royal-signal transition-all duration-200 ease-out hover:bg-lavender-wash ${className}`}
     >
