@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { site } from "@/lib/site";
 import { localBusinessSchema } from "@/lib/schema";
@@ -15,6 +16,12 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
 });
+
+const gtmScript = `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${site.gtmId}');`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -65,6 +72,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="fr-BE" className={`${inter.variable} antialiased`}>
       <body className="flex min-h-screen flex-col">
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${site.gtmId}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
@@ -72,6 +87,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Analytics />
         <FloatingCallButton />
         <JsonLd data={localBusinessSchema} />
+        <Script
+          id="google-tag-manager"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{ __html: gtmScript }}
+        />
       </body>
     </html>
   );

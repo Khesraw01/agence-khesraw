@@ -18,4 +18,5 @@ export const site = {
   trades: ["Plombier", "Électricien", "Couvreur"],
   calUrl: process.env.NEXT_PUBLIC_CAL_URL ?? "",
   gaId: process.env.NEXT_PUBLIC_GA_ID ?? "",
+  gtmId: process.env.NEXT_PUBLIC_GTM_ID ?? "GTM-5WJJQD2M",
 } as const;
