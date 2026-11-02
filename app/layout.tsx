@@ -8,7 +8,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import Analytics from "@/components/Analytics";
-import { FloatingCallButton } from "@/components/buttons";
+import { StickyCallBar } from "@/components/buttons";
 import JsonLd from "@/components/JsonLd";
 import HtmlLang from "@/components/HtmlLang";
 
@@ -26,7 +26,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: "Sites Web pour Artisans | Khesraw",
+  title: "Devis automatiques pour artisans du bâtiment | Khesraw",
   description: site.description,
   keywords: [
     "agence web artisan Belgique",
@@ -50,12 +50,12 @@ export const metadata: Metadata = {
     locale: "fr_BE",
     url: site.url,
     siteName: site.brand,
-    title: "Sites Web pour Artisans | Khesraw",
+    title: "Devis automatiques pour artisans du bâtiment | Khesraw",
     description: site.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sites Web pour Artisans | Khesraw",
+    title: "Devis automatiques pour artisans du bâtiment | Khesraw",
     description: site.description,
   },
   robots: {
@@ -87,7 +87,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           crossOrigin="anonymous"
         />
       </head>
-      <body className="flex min-h-screen flex-col">
+      <body className="flex min-h-screen flex-col pb-[calc(4rem+env(safe-area-inset-bottom))] md:pb-0">
         <noscript>
           <iframe
             src={`https://www.googletagmanager.com/ns.html?id=${site.gtmId}`}
@@ -101,7 +101,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Footer />
         <CookieBanner />
         <Analytics />
-        <FloatingCallButton />
+        <StickyCallBar />
         <HtmlLang />
         <JsonLd data={professionalServiceSchema} />
         <Script

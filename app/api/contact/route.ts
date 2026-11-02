@@ -1,9 +1,12 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { rateLimit } from "@/lib/rate-limit";
+import { TRADES } from "@/lib/contact";
+import { site } from "@/lib/site";
 
 const MAX_REQUESTS = 5;
 const WINDOW_MS = 10 * 60 * 1000; // 10 minutes
-const ALLOWED_TRADES = ["Plombier", "Électricien", "Couvreur", "Autre"];
+const ALLOWED_TRADES: readonly string[] = TRADES;
+const DELIVERY_FAILED = `Votre demande n'a pas pu m'être transmise. Appelez-moi au ${site.phone} ou écrivez-moi sur WhatsApp.`;
 
 function getClientIp(req: NextRequest): string {
   return (
@@ -63,6 +66,7 @@ export async function POST(req: NextRequest) {
   if (name.length < 2) errors.name = "Nom invalide.";
   if (!isValidPhone(phone)) errors.phone = "Numéro de téléphone invalide.";
   if (!ALLOWED_TRADES.includes(trade)) errors.trade = "Métier invalide.";
+  if (body.consent !== true) errors.consent = "Consentement requis.";
 
   if (Object.keys(errors).length > 0) {
     return NextResponse.json(
@@ -71,18 +75,27 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  console.log("[contact] Nouvelle demande :", { name, phone, trade, ville, message, offre });
-
+  const lead = { name, phone, trade, ville, message, offre, consent: true, ip };
   const webhookUrl = process.env.CONTACT_WEBHOOK_URL;
-  if (webhookUrl) {
+
+  if (!webhookUrl) {
+    // Sans canal de réception, une demande « réussie » serait perdue : en production on le dit au visiteur.
+    if (process.env.NODE_ENV === "production") {
+      console.error("[contact] CONTACT_WEBHOOK_URL absente : demande non transmise", lead);
+      return NextResponse.json({ error: DELIVERY_FAILED }, { status: 503 });
+    }
+    console.log("[contact] Nouvelle demande (développement) :", lead);
+  } else {
     try {
-      await fetch(webhookUrl, {
+      const res = await fetch(webhookUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, phone, trade, ville, message, offre, ip }),
+        body: JSON.stringify(lead),
       });
-    } catch {
-      // Échec silencieux : on ne bloque pas la réponse utilisateur.
+      if (!res.ok) throw new Error(`webhook ${res.status}`);
+    } catch (error) {
+      console.error("[contact] Échec de transmission :", error, lead);
+      return NextResponse.json({ error: DELIVERY_FAILED }, { status: 502 });
     }
   }
 

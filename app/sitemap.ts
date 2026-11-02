@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { headers } from "next/headers";
 import { site } from "@/lib/site";
 import { cities } from "@/lib/cities";
+import { allPosts } from "@/lib/blog";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
@@ -80,7 +81,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  return [...staticEntries, ...cityEntries];
+  const blogEntries: MetadataRoute.Sitemap = [
+    { url: `${baseUrl}/blog`, lastModified: lastmod, changeFrequency: "weekly", priority: 0.7 },
+    ...allPosts().map((post) => ({
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: post.date,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
+  ];
+
+  return [...staticEntries, ...cityEntries, ...blogEntries];
 }
 
 

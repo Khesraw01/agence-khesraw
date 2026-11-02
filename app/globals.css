@@ -20,6 +20,10 @@
   --color-amber-pending: #ffa64d;
   --color-azure-focus: #0099ff;
   --color-navy: #070a1a;
+  --color-alert: #b42318;
+  --color-royal-deep: #0b3fc2;
+  --color-marker: #ffe08a;
+  --color-whatsapp: #0f7a40;
 
   /* Ombres */
   --shadow-sm: rgba(0, 0, 0, 0.1) 0px 0px 4px -2px;
@@ -51,9 +55,83 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+@layer base {
+  h1,
+  h2,
+  h3 {
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+}
+
 ::selection {
   background-color: var(--color-royal-signal);
   color: #ffffff;
+}
+
+/* Surlignage façon marqueur pour les mots clés */
+.marker {
+  background-image: linear-gradient(
+    transparent 58%,
+    var(--color-marker) 58%,
+    var(--color-marker) 92%,
+    transparent 92%
+  );
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding-inline: 0.08em;
+}
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Apparition au défilement : uniquement là où le navigateur la gère sans JavaScript,
+   le contenu reste visible partout ailleurs. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: reveal-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 55%;
+    }
+  }
+}
+
+@keyframes nudge-down {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+.nudge-down {
+  animation: nudge-down 1.6s ease-in-out infinite;
+}
+
+@keyframes bubble-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.bubble {
+  animation: bubble-in 0.45s ease-out both;
 }
 
 :focus-visible {
