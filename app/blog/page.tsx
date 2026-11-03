@@ -8,7 +8,7 @@ import PostCard from "@/components/blog/PostCard";
 import { PhoneButton, WhatsAppButton } from "@/components/buttons";
 
 export const metadata: Metadata = {
-  title: "Conseils pour artisans du bâtiment : devis, appels, avis | Khesraw",
+  title: "Blog : conseils pour artisans du bâtiment (devis, appels, avis) | Khesraw",
   description:
     "Conseils pratiques pour plombiers, électriciens et couvreurs : relancer un devis, ne plus perdre d'appels, obtenir des avis Google, gagner du temps sur l'administratif.",
   alternates: { canonical: "/blog" },
@@ -21,7 +21,7 @@ export default function Page() {
       <JsonLd
         data={breadcrumbSchema([
           { name: "Accueil", path: "/" },
-          { name: "Conseils", path: "/blog" },
+          { name: "Blog", path: "/blog" },
         ])}
       />
       <JsonLd
@@ -50,11 +50,11 @@ export default function Page() {
               </Link>
             </li>
             <li aria-hidden="true">/</li>
-            <li aria-current="page">Conseils</li>
+            <li aria-current="page">Blog</li>
           </ol>
         </nav>
         <h1 className="mt-6 max-w-3xl text-[34px] font-bold tracking-[-0.02em] text-midnight-ink md:text-[52px]">
-          Conseils pour artisans du bâtiment
+          Blog&nbsp;: conseils pour artisans du bâtiment
         </h1>
         <p className="mt-4 max-w-2xl text-[18px] leading-relaxed text-slate-caption md:text-[20px]">
           Des méthodes simples pour vos devis, vos appels, vos relances et vos avis Google. À appliquer

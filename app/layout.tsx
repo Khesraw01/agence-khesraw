@@ -4,6 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import { site } from "@/lib/site";
 import { professionalServiceSchema } from "@/lib/schema";
+import { allPosts } from "@/lib/blog";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
@@ -96,7 +97,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
-        <Navbar />
+        <Navbar blogLinks={allPosts().map((post) => ({ href: `/blog/${post.slug}`, title: post.title }))} />
         <main className="flex-1">{children}</main>
         <Footer />
         <CookieBanner />

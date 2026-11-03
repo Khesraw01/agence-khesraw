@@ -66,7 +66,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
       <JsonLd
         data={breadcrumbSchema([
           { name: "Accueil", path: "/" },
-          { name: "Conseils", path: "/blog" },
+          { name: "Blog", path: "/blog" },
           { name: post.title, path: `/blog/${post.slug}` },
         ])}
       />
@@ -82,7 +82,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             <li aria-hidden="true">/</li>
             <li>
               <Link href="/blog" className="underline-offset-4 hover:text-royal-deep hover:underline">
-                Conseils
+                Blog
               </Link>
             </li>
           </ol>

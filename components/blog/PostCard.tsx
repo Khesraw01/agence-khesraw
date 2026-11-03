@@ -25,7 +25,7 @@ export default function PostCard({ post, headingLevel = "h3" }: { post: BlogPost
       </Heading>
       <p className="mt-3 flex-1 text-[16px] leading-relaxed text-slate-caption">{post.description}</p>
       <span className="mt-5 inline-flex items-center gap-1.5 text-[15px] font-semibold text-royal-deep">
-        Lire le conseil · {readingMinutes(post)} min <span aria-hidden="true">→</span>
+        Lire l&apos;article · {readingMinutes(post)} min <span aria-hidden="true">→</span>
       </span>
     </Link>
   );
