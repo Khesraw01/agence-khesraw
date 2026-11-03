@@ -33,7 +33,7 @@ export default function PhoneDemo({ title, bubbles }: { title: string; bubbles: 
               style={{ animationDelay: `${0.35 + i * 0.7}s` }}
             >
               {bubble.note ? (
-                <span className="mb-0.5 block text-[11px] font-semibold uppercase tracking-wide opacity-80">
+                <span className="mb-0.5 block text-[11px] font-bold uppercase tracking-wide">
                   {bubble.note}
                 </span>
               ) : null}

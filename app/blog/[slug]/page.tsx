@@ -5,7 +5,6 @@ import { allPosts, formatDate, getPost, readingMinutes } from "@/lib/blog";
 import { site } from "@/lib/site";
 import { breadcrumbSchema } from "@/lib/schema";
 import JsonLd from "@/components/JsonLd";
-import ArticleBody from "@/components/blog/ArticleBody";
 import PostCard from "@/components/blog/PostCard";
 import { PhoneButton, WhatsAppButton } from "@/components/buttons";
 
@@ -21,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!post) return {};
   return {
     title: `${post.title} | Khesraw`,
-    description: post.metaDescription,
+    description: post.description,
     alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {
       type: "article",
@@ -29,9 +28,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       siteName: site.brand,
       url: `/blog/${post.slug}`,
       title: post.title,
-      description: post.metaDescription,
+      description: post.description,
       publishedTime: post.date,
       authors: [site.name],
+      images: post.image ? [{ url: post.image, alt: post.imageAlt }] : undefined,
     },
   };
 }
@@ -53,7 +53,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
           "@context": "https://schema.org",
           "@type": "BlogPosting",
           headline: post.title,
-          description: post.metaDescription,
+          description: post.description,
           datePublished: post.date,
           dateModified: post.date,
           inLanguage: "fr-BE",
@@ -94,25 +94,25 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
           Par {site.name} · {formatDate(post.date)} · {readingMinutes(post)} min de lecture
         </p>
 
-        <div className="mt-8 rounded-2xl bg-lavender-wash p-5 md:p-6">
-          <p className="text-[15px] font-bold uppercase tracking-wider text-royal-deep">En bref</p>
-          <ul className="mt-3 space-y-2 text-[17px] leading-snug text-graphite-body">
-            {post.summary.map((point, i) => (
-              <li key={i} className="flex gap-3">
-                <span aria-hidden="true" className="mt-[0.55em] h-1.5 w-1.5 shrink-0 rounded-full bg-royal-signal" />
-                <span>{point}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {post.image ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={post.image}
+            alt={post.imageAlt}
+            width={1200}
+            height={630}
+            className="mt-8 aspect-[1200/630] w-full rounded-2xl border border-stone-divider object-cover"
+          />
+        ) : null}
 
-        <div className="mt-10">
-          <ArticleBody blocks={post.blocks} />
-        </div>
+        <div className="article mt-10" dangerouslySetInnerHTML={{ __html: post.html }} />
 
         <aside className="mt-14 rounded-[28px] bg-navy px-6 py-10 text-white md:px-10">
-          <h2 className="text-[24px] font-bold tracking-tight md:text-[30px]">{post.cta.title}</h2>
-          <p className="mt-3 text-[17px] leading-relaxed text-white/80">{post.cta.text}</p>
+          <h2 className="text-[24px] font-bold tracking-tight md:text-[30px]">Vous préférez que ça se fasse tout seul ?</h2>
+          <p className="mt-3 text-[17px] leading-relaxed text-white/80">
+            Je vous installe un système qui prépare vos devis, répond à vos appels manqués et relance vos clients.
+            Parlons-en 15 minutes.
+          </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <PhoneButton label="Appeler" />
             <WhatsAppButton />

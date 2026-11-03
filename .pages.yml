@@ -1,0 +1,50 @@
+# Configuration de Pages CMS (https://pagescms.org) : l'éditeur visuel du blog.
+media:
+  input: public/images/blog
+  output: /images/blog
+
+content:
+  - name: blog
+    label: Articles du blog
+    type: collection
+    path: content/blog
+    filename: "{primary}.md"
+    view:
+      fields: [title, date, category]
+      sort: [date]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Titre
+        type: string
+        required: true
+      - name: date
+        label: Date de publication
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: description
+        label: Description pour Google (120 à 155 caractères)
+        type: text
+        required: true
+      - name: image
+        label: Image de couverture (format paysage, idéalement 1200 × 630)
+        type: image
+      - name: imageAlt
+        label: Description de l'image (pour les malvoyants)
+        type: string
+      - name: category
+        label: Catégorie
+        type: select
+        options:
+          values: [Devis, Appels, Relances, Avis Google, Administratif, Exemple]
+      - name: draft
+        label: Brouillon (ne pas publier)
+        type: boolean
+        default: false
+      - name: body
+        label: Texte de l'article
+        type: rich-text
