@@ -1,21 +1,13 @@
 "use client";
 
 import { useEffect, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
+import Link from "next/link";
 import { site, whatsappLink } from "@/lib/site";
 import { trackEvent } from "@/lib/gtag";
 import { WhatsAppIcon } from "@/components/buttons";
+import type { Offer } from "@/lib/offers";
 
-export type Offer = {
-  slug: string;
-  tabLabel: string;
-  name: string;
-  badge: string;
-  forWho: string;
-  included: string[];
-  price: string;
-  priceNote: string;
-  cta: string;
-};
+export type { Offer };
 
 function renderPrice(price: string): ReactNode {
   const parts = price.split("[prix]");
@@ -145,13 +137,13 @@ export default function OfferTabs({ offers, defaultSlug }: { offers: Offer[]; de
             <p className="text-[34px] font-bold leading-tight tracking-tight text-midnight-ink">{renderPrice(offer.price)}</p>
             {offer.priceNote ? <p className="mt-2 text-[15px] leading-snug text-slate-caption">{offer.priceNote}</p> : null}
             <div className="mt-5 flex flex-col gap-2.5">
-              <a
-                href="#contact"
+              <Link
+                href="/#contact"
                 onClick={() => trackEvent("clic_offre", { offre: offer.slug })}
                 className="inline-flex min-h-12 items-center justify-center rounded-full bg-royal-signal px-6 py-3 text-[16px] font-semibold text-white transition-colors hover:bg-[#1048e0]"
               >
                 {offer.cta}
-              </a>
+              </Link>
               <a
                 href={whatsappFor(offer)}
                 target="_blank"

@@ -36,7 +36,6 @@ export default function Navbar({ blogLinks = [] }: { blogLinks?: BlogLink[] }) {
   const locale = getLocale(pathname);
   const labels = t[locale];
   const nl = locale === "nl";
-  const otherLang = nl ? "/" : "/nl";
   const hasBlogMenu = !nl && blogLinks.length > 0;
 
   useEffect(() => {
@@ -130,14 +129,6 @@ export default function Navbar({ blogLinks = [] }: { blogLinks?: BlogLink[] }) {
         </div>
 
         <div className="flex items-center gap-3">
-          <Link
-            href={otherLang}
-            hrefLang={nl ? "fr-BE" : "nl-BE"}
-            className="hidden text-sm font-semibold text-slate-caption transition-colors hover:text-royal-signal md:inline-flex"
-          >
-            {nl ? "FR" : "NL"}
-            <span className="sr-only"> — {labels.switchAria}</span>
-          </Link>
           <PhoneLink className="hidden text-[15px] font-semibold text-graphite-body transition-colors hover:text-royal-signal md:inline-flex" />
           <span className="hidden sm:block">
             <QuoteButton href={labels.devisHref} label={labels.devis} size="sm" />
@@ -207,14 +198,6 @@ export default function Navbar({ blogLinks = [] }: { blogLinks?: BlogLink[] }) {
                 </Link>
               )
             )}
-            <Link
-              href={otherLang}
-              hrefLang={nl ? "fr-BE" : "nl-BE"}
-              onClick={closeAll}
-              className="rounded-lg px-3 py-3 text-[16px] font-medium text-slate-caption transition-colors hover:bg-lavender-wash hover:text-royal-signal"
-            >
-              <span lang={nl ? "fr" : "nl"}>{labels.switchLabel}</span>
-            </Link>
             <PhoneLink className="mt-2 px-3 py-3 text-[16px] font-semibold text-royal-signal" />
             <QuoteButton href={labels.devisHref} label={labels.devis} className="mt-2" />
           </div>

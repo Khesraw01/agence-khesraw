@@ -9,7 +9,6 @@ export const metadata: Metadata = {
   description: home.meta.description,
   alternates: {
     canonical: "/",
-    languages: { "fr-BE": "/", "nl-BE": "/nl", "x-default": "/" },
   },
 };
 

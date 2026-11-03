@@ -15,7 +15,8 @@ export const professionalServiceSchema = {
     addressCountry: "BE",
     addressLocality: site.locality,
   },
-  areaServed: site.areaServed,
+  areaServed: { "@type": "Country", name: "Belgique" },
+  knowsLanguage: ["fr-BE", "nl-BE"],
 };
 
 export function serviceSchema(name: string, description: string) {
@@ -48,7 +49,7 @@ export function faqSchema(questions: { q: string; a: string }[]) {
 }
 
 export function offerSchema(
-  offers: { name: string; priceValue: number; tagline: string }[]
+  offers: { name: string; priceValue: number; forWho: string }[]
 ) {
   return {
     "@context": "https://schema.org",
@@ -57,7 +58,7 @@ export function offerSchema(
       "@type": "Offer",
       position: i + 1,
       name: o.name,
-      description: o.tagline,
+      description: o.forWho,
       price: String(o.priceValue),
       priceCurrency: "EUR",
       url: `${site.url}/tarifs`,

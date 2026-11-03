@@ -20,65 +20,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   const staticEntries: MetadataRoute.Sitemap = [
-    {
-      url: `${baseUrl}/`,
-      lastModified: lastmod,
-      changeFrequency: "weekly",
-      priority: 1,
-      alternates: {
-        languages: {
-          "fr-BE": `${baseUrl}/`,
-          "nl-BE": `${baseUrl}/nl`,
-          "x-default": `${baseUrl}/`,
-        },
-      },
-    },
+    { url: `${baseUrl}/`, lastModified: lastmod, changeFrequency: "weekly", priority: 1 },
     { url: `${baseUrl}/site-web-plombier`, lastModified: lastmod, changeFrequency: "monthly", priority: 0.8 },
     { url: `${baseUrl}/site-web-electricien`, lastModified: lastmod, changeFrequency: "monthly", priority: 0.8 },
     { url: `${baseUrl}/site-web-couvreur`, lastModified: lastmod, changeFrequency: "monthly", priority: 0.8 },
-    {
-      url: `${baseUrl}/tarifs`,
-      lastModified: lastmod,
-      changeFrequency: "monthly",
-      priority: 0.7,
-      alternates: { languages: { "fr-BE": `${baseUrl}/tarifs`, "nl-BE": `${baseUrl}/nl/tarifs` } },
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: lastmod,
-      changeFrequency: "monthly",
-      priority: 0.7,
-      alternates: { languages: { "fr-BE": `${baseUrl}/contact`, "nl-BE": `${baseUrl}/nl/contact` } },
-    },
+    { url: `${baseUrl}/tarifs`, lastModified: lastmod, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/contact`, lastModified: lastmod, changeFrequency: "monthly", priority: 0.6 },
     { url: `${baseUrl}/mentions-legales`, lastModified: lastmod, changeFrequency: "yearly", priority: 0.3 },
     { url: `${baseUrl}/confidentialite`, lastModified: lastmod, changeFrequency: "yearly", priority: 0.3 },
-    {
-      url: `${baseUrl}/nl`,
-      lastModified: lastmod,
-      changeFrequency: "weekly",
-      priority: 0.8,
-      alternates: {
-        languages: {
-          "fr-BE": `${baseUrl}/`,
-          "nl-BE": `${baseUrl}/nl`,
-          "x-default": `${baseUrl}/`,
-        },
-      },
-    },
-    {
-      url: `${baseUrl}/nl/tarifs`,
-      lastModified: lastmod,
-      changeFrequency: "monthly",
-      priority: 0.7,
-      alternates: { languages: { "fr-BE": `${baseUrl}/tarifs`, "nl-BE": `${baseUrl}/nl/tarifs` } },
-    },
-    {
-      url: `${baseUrl}/nl/contact`,
-      lastModified: lastmod,
-      changeFrequency: "monthly",
-      priority: 0.7,
-      alternates: { languages: { "fr-BE": `${baseUrl}/contact`, "nl-BE": `${baseUrl}/nl/contact` } },
-    },
   ];
 
   const blogEntries: MetadataRoute.Sitemap = [

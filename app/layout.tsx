@@ -40,11 +40,6 @@ export const metadata: Metadata = {
   creator: site.name,
   alternates: {
     canonical: "/",
-    languages: {
-      "fr-BE": "/",
-      "nl-BE": "/nl",
-      "x-default": "/",
-    },
   },
   openGraph: {
     type: "website",

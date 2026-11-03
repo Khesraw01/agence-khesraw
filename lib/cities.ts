@@ -27,7 +27,7 @@ export const cities: City[] = [
       "Site web pour artisan à Mouscron. Rapide, optimisé SEO, réservation en ligne. Plombiers, électriciens, couvreurs. Devis gratuit.",
     h1: "Création site web artisan à Mouscron",
     intro: [
-      "Mouscron est une ville frontalière du Hainaut, à deux pas de Tourcoing et de Lille. Vos clients comparent les artisans sur Google avant d'appeler.",
+      "Mouscron est une ville frontalière du Hainaut, au cœur de la Wallonie picarde. Vos clients comparent les artisans sur Google avant d'appeler.",
       "Sans site web, vous restez invisible. Avec un site rapide, vous apparaissez en tête des résultats locaux.",
       "Je crée des sites pour plombiers, électriciens et couvreurs de Mouscron. Votre agenda se remplit en ligne, 24h/24.",
     ],
@@ -40,15 +40,15 @@ export const cities: City[] = [
         a: "Les habitants de Mouscron cherchent sur Google avant d'appeler. Sans site, vous êtes invisible.",
       },
       {
-        q: "Couvrez-vous aussi Tourcoing et Lille ?",
-        a: "Oui. Mouscron, Tourcoing et Lille font partie de ma zone d'intervention.",
+        q: "Couvrez-vous aussi Estaimpuis et Comines-Warneton ?",
+        a: "Oui. Mouscron, Estaimpuis, Comines-Warneton et toute la Wallonie picarde font partie de ma zone.",
       },
       {
         q: "Combien de temps pour mettre mon site en ligne ?",
         a: "Comptez 7 à 14 jours après réception de vos informations.",
       },
     ],
-    nearby: ["tournai", "lille"],
+    nearby: ["tournai", "mons"],
     keywords: ["création site web artisan Mouscron", "site web plombier Mouscron", "agence web Mouscron"],
   },
   {
@@ -227,77 +227,6 @@ export const cities: City[] = [
     ],
     nearby: ["namur", "charleroi"],
     keywords: ["création site web artisan Liège", "site web couvreur Liège", "agence web Liège"],
-  },
-
-  {
-    slug: "lille",
-    path: "/lille",
-    name: "Lille",
-    country: "FR",
-    lang: "fr",
-    title: "Création site web artisan à Lille | Khesraw",
-    description:
-      "Site web pour artisan à Lille et dans la métropole. Rapide, optimisé SEO, réservation en ligne. Devis gratuit.",
-    h1: "Création site web artisan à Lille",
-    intro: [
-      "Lille, capitale des Flandres, est le cœur de la Métropole Européenne de Lille. Plus d'un million d'habitants cherchent des artisans en ligne.",
-      "Tourcoing, Roubaix, Villeneuve-d'Ascq : la demande est énorme. Votre site doit vous rendre visible sur Google.",
-      "Je crée des sites rapides et optimisés SEO pour les artisans de la métropole lilloise. Vos clients réservent en ligne.",
-    ],
-    localLine: "Dans la Métropole Lilloise, les clients réservent en ligne. Soyez trouvés en premier.",
-    metierExample:
-      "Un plombier de Lille capte les urgences de la métropole grâce à un site rapide et bien classé.",
-    faq: [
-      {
-        q: "Couvrez-vous Tourcoing et Roubaix ?",
-        a: "Oui. Toute la Métropole Européenne de Lille.",
-      },
-      {
-        q: "Un site web est-il rentable à Lille ?",
-        a: "Oui. La densité de clients y est parmi les plus fortes de la région.",
-      },
-      {
-        q: "Travaillez-vous aussi en Belgique ?",
-        a: "Oui. Mouscron, Tournai et Courtrai sont à deux pas de Lille.",
-      },
-    ],
-    nearby: ["tournai", "mouscron"],
-    keywords: ["création site internet plombier Lille", "site web artisan Métropole Lilloise", "agence web artisan Tourcoing Roubaix"],
-  },
-  {
-    slug: "kortrijk",
-    path: "/nl/kortrijk",
-    name: "Kortrijk",
-    country: "BE",
-    lang: "nl",
-    title: "Website laten maken voor vakman in Kortrijk | Khesraw",
-    description:
-      "Website voor loodgieter, elektricien of dakwerker in Kortrijk. Snel, SEO-geoptimaliseerd, online afspraken. Gratis offerte.",
-    h1: "Website laten maken voor vakman in Kortrijk",
-    intro: [
-      "Kortrijk is een dynamische stad in West-Vlaanderen. Lokale vakmensen verliezen klanten aan concurrenten die online zichtbaar zijn.",
-      "Klanten zoeken op Google voor ze bellen. Zonder website blijft u onzichtbaar.",
-      "Ik maak snelle, SEO-geoptimaliseerde websites voor loodgieters, elektriciens en dakwerkers in Kortrijk.",
-    ],
-    localLine: "Vakmensen in Kortrijk, word gevonden vóór uw concurrenten.",
-    metierExample:
-      "Een loodgieter in Kortrijk met een snelle website vangt de dringende herstellingen op.",
-    faq: [
-      {
-        q: "Waarom een website voor mijn zaak in Kortrijk?",
-        a: "Klanten zoeken online voor ze bellen. Een website maakt u vindbaar.",
-      },
-      {
-        q: "Kunnen klanten online een afspraak boeken?",
-        a: "Ja. Uw agenda is gekoppeld. Klanten boeken 24/7.",
-      },
-      {
-        q: "Werkt u ook in West-Vlaanderen?",
-        a: "Ja. Kortrijk, Roeselare en heel West-Vlaanderen.",
-      },
-    ],
-    nearby: ["tournai", "lille"],
-    keywords: ["website laten maken loodgieter Kortrijk", "website elektricien Kortrijk", "website dakwerker West-Vlaanderen"],
   },
 ];
 

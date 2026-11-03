@@ -37,10 +37,10 @@ export const trades: Trade[] = [
     h1: "Plus de clients pour votre entreprise d'électricité",
     h1Accent: "clients",
     intro:
-      "Un site optimisé SEO qui vous met en première page. Vos clients réservent en quelques clics.",
+      "Un site clair qui met en avant votre savoir-faire. Vos clients vous contactent et demandent un devis en quelques clics.",
     metaTitle: "Site Web pour Électricien | Khesraw",
     metaDescription:
-      "Site internet pour électricien : rapide, optimisé SEO, réservation en ligne. Soyez trouvé en premier sur Google. Devis gratuit.",
+      "Site internet pour électricien : clair, rapide, pensé pour le mobile et le référencement local. Plus de demandes de devis. Devis gratuit.",
     keywords: [
       "site internet électricien",
       "création site web électricien",
@@ -48,7 +48,7 @@ export const trades: Trade[] = [
       "électricien Wallonie",
     ],
     problems: ["Aucun site ou un site daté", "Peu de demandes de devis", "Concurrence forte sur Google"],
-    benefits: ["Première page sur Google", "Demandes de devis qualifiées", "Réservation en ligne simple"],
+    benefits: ["Plus de demandes de devis", "Demandes de devis qualifiées", "Devis préparés plus vite"],
   },
   {
     slug: "site-web-couvreur",
@@ -150,7 +150,7 @@ export const steps = [
 export const advantages = [
   {
     title: "Rapide",
-    desc: "Votre site charge en moins d'une seconde. Vos clients ne patientent pas.",
+    desc: "Votre site charge très vite. Vos clients ne patientent pas.",
   },
   {
     title: "SEO local",
@@ -188,27 +188,27 @@ export const comparison = [
 
 export const faq = [
   {
-    q: "Combien coûte un site web pour artisan ?",
-    a: "Trois formules claires : 697 €, 997 € ou 1497 €. Pas de frais cachés.",
+    q: "Combien ça coûte ?",
+    a: "L'Assistant Devis se teste 7 jours gratuitement, puis se paie au mois, sans engagement. Un site se paie une seule fois. Tous les prix sont sur la page Tarifs.",
   },
   {
     q: "Combien de temps pour mettre mon site en ligne ?",
-    a: "Entre 7 et 15 jours selon la formule. Vous validez avant la mise en ligne.",
+    a: "Comptez 7 à 14 jours après réception de vos informations. Vous validez avant la mise en ligne.",
   },
   {
     q: "Mon site sera-t-il visible sur Google ?",
-    a: "Oui. J'optimise le SEO local et votre fiche Google Business.",
+    a: "Je soigne votre référencement local et votre fiche Google Business. Je ne promets pas une place précise : personne ne peut garantir un classement Google.",
   },
   {
-    q: "Puis-je réserver des rendez-vous en ligne ?",
-    a: "Oui. Votre agenda est connecté. Vos clients réservent 24h/24.",
+    q: "Mes clients peuvent-ils demander un devis en ligne ?",
+    a: "Oui. Ils décrivent leur besoin avec photos et mesures, un brouillon de devis se prépare, et vous le validez depuis votre GSM.",
   },
   {
     q: "Devrai-je payer un abonnement ?",
-    a: "L'hébergement est facturé à part, environ 15 € par mois. La maintenance est incluse 12 mois avec la formule Croissance.",
+    a: "L'Assistant Devis est un abonnement mensuel, sans engagement. Pour un site seul, seul l'hébergement est facturé à part, environ 15 € par mois.",
   },
   {
     q: "Comment commencer ?",
-    a: "Appelez-moi ou demandez un devis gratuit. Réponse sous 24 h.",
+    a: "Appelez-moi ou écrivez-moi sur WhatsApp. Réponse sous 24 h.",
   },
 ];

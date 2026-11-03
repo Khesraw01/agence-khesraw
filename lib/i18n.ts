@@ -22,7 +22,7 @@ export const t = {
     switchAria: "Nederlandse versie",
     footerNav: [
       { href: "/", label: "Accueil" },
-      { href: "/#offres", label: "Offres" },
+      { href: "/tarifs", label: "Tarifs" },
       { href: "/blog", label: "Blog" },
       { href: "/site-web-plombier", label: "Plombier / chauffagiste" },
       { href: "/site-web-electricien", label: "Électricien" },

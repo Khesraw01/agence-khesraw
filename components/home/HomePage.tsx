@@ -197,6 +197,11 @@ export default function HomePage({ c }: { c: HomeContent }) {
         next={next("offres", c.offers.next)}
       >
         <OfferTabs offers={c.offers.items} defaultSlug={c.offers.defaultSlug} />
+        <p className="mt-6 text-center text-[16px] text-slate-caption">
+          <Link href="/tarifs" className="font-semibold text-royal-deep underline underline-offset-4">
+            Voir le détail des tarifs
+          </Link>
+        </p>
       </HomeSection>
 
       {/* 6. VOTRE MÉTIER */}

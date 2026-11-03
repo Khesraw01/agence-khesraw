@@ -1,4 +1,5 @@
 import type { HomeContent } from "@/lib/home-types";
+import { offers } from "@/lib/offers";
 
 export const home: HomeContent = {
   meta: {
@@ -164,63 +165,7 @@ export const home: HomeContent = {
     intro:
       "Touchez un onglet pour voir le détail. Prix HTVA, TVA belge en plus. Pas sûr ? Appelez-moi : je vous dis honnêtement quelle formule vous suffit, même la moins chère.",
     defaultSlug: "assistant",
-    items: [
-      {
-        slug: "assistant",
-        tabLabel: "Assistant Devis",
-        name: "Assistant Devis",
-        badge: "Essai gratuit 7 jours",
-        forWho: "Vous avez déjà un site, ou vous n'en voulez pas. Vous voulez surtout ne plus taper vos devis le soir.",
-        included: [
-          "Formulaire guidé pour vos clients : travaux, photos, mesures, adresse",
-          "Brouillon de devis préparé avec vos prix",
-          "Relecture et validation depuis votre GSM",
-          "Relance automatique des devis sans réponse",
-          "SMS automatique après un appel manqué",
-          "Demande d'avis Google après le chantier",
-          "Rappels de paiement pour les factures en retard",
-          "Mise en place avec vos prix, faite par moi",
-        ],
-        price: "[prix] € HTVA / mois",
-        priceNote: "Après 7 jours d'essai gratuit. Sans durée minimum : vous arrêtez quand vous voulez.",
-        cta: "Demander mon essai gratuit",
-      },
-      {
-        slug: "site",
-        tabLabel: "Site Artisan",
-        name: "Site Artisan",
-        badge: "Paiement unique",
-        forWho: "Vous n'avez pas de site, ou il date. Vous voulez une vitrine claire et lisible sur GSM.",
-        included: [
-          "Un site clair, pensé d'abord pour le GSM",
-          "Boutons Appeler et WhatsApp toujours visibles",
-          "Vos services, votre zone et vos photos de chantier",
-          "Formulaire de contact simple",
-          "Version en néerlandais si vous le souhaitez",
-          "Mise en ligne faite par moi",
-          "Le site et le nom de domaine sont à vous",
-        ],
-        price: "[prix] € HTVA",
-        priceNote: "Payé une seule fois.",
-        cta: "Parler de mon site",
-      },
-      {
-        slug: "pack",
-        tabLabel: "Pack Complet",
-        name: "Pack Complet",
-        badge: "Site + Assistant",
-        forWho: "Vous partez de zéro et vous voulez tout régler d'un coup : le site et les devis.",
-        included: [
-          "Le Site Artisan, en entier",
-          "L'Assistant Devis, en entier",
-          "Le formulaire guidé intégré à votre site",
-          "Tout réglé en une fois, avec un seul interlocuteur : moi",
-        ],
-        price: "[prix] € HTVA + [prix] € / mois",
-        priceNote: "Le site est payé une fois, l'Assistant Devis au mois, sans durée minimum.",
-        cta: "Parler du pack complet",
-      },
-    ],
+    items: offers,
     next: "Plombier, électricien ou couvreur ? Voyez ce que ça donne pour votre métier.",
   },
   trades: {

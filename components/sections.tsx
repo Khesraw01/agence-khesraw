@@ -94,14 +94,11 @@ export function Guarantee() {
   return (
     <div className="rounded-[40px] bg-lavender-wash p-8 text-center md:p-12">
       <h2 className="text-[28px] font-semibold tracking-tight text-midnight-ink md:text-[40px]">
-        Zéro risque
+        Vous essayez avant de payer
       </h2>
       <p className="mx-auto mt-3 max-w-xl text-lg text-slate-caption">
-        10 appels en 3 mois, ou 3 mois offerts. Vous êtes accompagné
-        jusqu&apos;au résultat.
-      </p>
-      <p className="mt-2 text-sm text-ash-helper">
-        Conditions détaillées sur demande.
+        L&apos;Assistant Devis se teste 7 jours gratuitement, sur vos vrais
+        clients. Sans engagement : vous continuez seulement si ça vous convient.
       </p>
       <div className="mt-7 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm font-medium text-slate-caption">
         <span className="inline-flex items-center gap-2">

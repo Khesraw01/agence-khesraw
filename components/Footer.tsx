@@ -59,15 +59,6 @@ export default function Footer() {
                   {labels.privacy}
                 </Link>
               </li>
-              <li>
-                <Link
-                  href={nl ? "/" : "/nl"}
-                  hrefLang={nl ? "fr-BE" : "nl-BE"}
-                  className="inline-block py-2 transition-colors hover:text-white"
-                >
-                  <span lang={nl ? "fr" : "nl"}>{nl ? "Version française" : "Nederlandse versie"}</span>
-                </Link>
-              </li>
               <li className="py-2 text-white/65">TVA : {site.vat}</li>
             </ul>
           </div>

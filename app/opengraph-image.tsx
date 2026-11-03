@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Khesraw — Sites web pour artisans";
+export const alt = "Khesraw — Devis automatiques pour artisans du bâtiment";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -29,22 +29,17 @@ export default function Image() {
             marginBottom: 56,
           }}
         >
-          <div
-            style={{
-              width: 68,
-              height: 68,
-              borderRadius: 18,
-              backgroundColor: "#145aff",
-              color: "#ffffff",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: 38,
-              fontWeight: 600,
-            }}
-          >
-            k
-          </div>
+          <svg width="68" height="68" viewBox="0 0 64 64" fill="none">
+            <rect width="64" height="64" rx="16" fill="#145aff" />
+            <path
+              d="M22 20h14l8 8v16a3 3 0 0 1-3 3H22a3 3 0 0 1-3-3V23a3 3 0 0 1 3-3Z"
+              fill="none"
+              stroke="#ffffff"
+              strokeWidth="3"
+              strokeLinejoin="round"
+            />
+            <path d="M26 36l4 4 8-8" fill="none" stroke="#ffffff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
           <div
             style={{
               fontSize: 44,
@@ -53,40 +48,40 @@ export default function Image() {
               letterSpacing: "-0.02em",
             }}
           >
-            khesraw
+            Khesraw
           </div>
         </div>
         <div
           style={{
-            fontSize: 74,
+            fontSize: 70,
             fontWeight: 600,
             lineHeight: 1.05,
             letterSpacing: "-0.027em",
             color: "#020520",
           }}
         >
-          Des sites web qui
+          Vos devis se préparent
         </div>
         <div
           style={{
-            fontSize: 74,
+            fontSize: 70,
             fontWeight: 600,
             lineHeight: 1.05,
             letterSpacing: "-0.027em",
             color: "#145aff",
           }}
         >
-          remplissent votre agenda
+          tout seuls
         </div>
         <div
           style={{
             fontSize: 30,
             color: "#374151",
             marginTop: 30,
-            maxWidth: 760,
+            maxWidth: 820,
           }}
         >
-          Rapides et SEO pour plombiers, électriciens et couvreurs.
+          Pour les artisans du bâtiment. Appel manqué, relance, avis Google : automatisés.
         </div>
       </div>
     ),
