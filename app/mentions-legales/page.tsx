@@ -6,57 +6,105 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Mentions légales | Khesraw",
   description:
-    "Mentions légales du site de Khesraw Sarwari, agence web pour artisans en Belgique.",
+    "Mentions légales du site de Khesraw Sarwari : éditeur, hébergement, activité, responsabilité et règlement des litiges.",
   alternates: { canonical: "/mentions-legales" },
 };
 
 export default function Page() {
   return (
-    <LegalPage
-      eyebrow="Informations légales"
-      title="Mentions légales"
-      updated="23 octobre 2026"
-    >
-      <LegalSection title="1. Éditeur du site">
+    <LegalPage eyebrow="Informations légales" title="Mentions légales" updated={site.legal.updated}>
+      <LegalSection title="Éditeur du site">
         <p>
-          Éditeur : {site.name}, agence web pour artisans du bâtiment.
+          Ce site est édité par {site.name}, personne physique exerçant en qualité d&apos;
+          {site.legal.status}.
         </p>
-        <p>
-          Téléphone : {site.phone} · E-mail : {site.email}.
-        </p>
-        <p>
-          TVA : {site.vat} · Pays : {site.country}.
-        </p>
-        <p>Adresse professionnelle : {site.address}.</p>
+        <ul className="list-disc space-y-1 pl-5">
+          <li>Adresse du siège : {site.legal.addressLine}, {site.country}</li>
+          <li>Numéro d&apos;entreprise (BCE) : {site.legal.bce}</li>
+          <li>Numéro de TVA : {site.vat}</li>
+          <li>Téléphone : {site.phone}</li>
+          <li>E-mail : {site.email}</li>
+          <li>Responsable de la publication : {site.name}</li>
+        </ul>
       </LegalSection>
 
-      <LegalSection title="2. Hébergement">
+      <LegalSection title="Hébergement">
         <p>
-          Le site est hébergé par Vercel Inc., 440 N Barranca Ave #4133,
-          Covina, CA 91723, États-Unis.
+          Le site est hébergé par {site.legal.hostName}, {site.legal.hostAddress}.
         </p>
-      </LegalSection>
-
-      <LegalSection title="3. Propriété intellectuelle">
         <p>
-          L&apos;ensemble des contenus du site (textes, logo, maquettes, code) est
-          protégé. Toute reproduction sans autorisation est interdite.
+          La plateforme client s&apos;appuie sur l&apos;infrastructure de {site.legal.platformName} (
+          {site.legal.platformCountry}).
         </p>
       </LegalSection>
 
-      <LegalSection title="4. Données personnelles">
+      <LegalSection title="Activité">
         <p>
-          Le traitement de vos données est décrit dans la{" "}
-          <Link
-            href="/confidentialite"
-            className="font-medium text-royal-signal underline underline-offset-2"
-          >
+          Création de sites internet, mise en place et maintenance de systèmes d&apos;automatisation de
+          la relation client (messages, devis, rendez-vous, avis) pour indépendants et petites
+          entreprises.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="Propriété intellectuelle">
+        <p>
+          L&apos;ensemble des éléments de ce site (textes, visuels, logo, structure, code) est protégé
+          par le droit d&apos;auteur. Toute reproduction, même partielle, sans autorisation écrite
+          préalable est interdite.
+        </p>
+        <p>
+          Les marques, noms et logos de tiers éventuellement cités restent la propriété de leurs
+          titulaires respectifs.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="Responsabilité">
+        <p>
+          Les informations publiées sur ce site sont fournies à titre indicatif et peuvent être
+          modifiées à tout moment. Malgré le soin apporté à leur rédaction, elles ne constituent ni une
+          garantie de résultat, ni un engagement contractuel. Seuls le devis signé et le contrat liant
+          les parties font foi.
+        </p>
+        <p>
+          Le site peut contenir des liens vers des sites tiers, sur le contenu desquels l&apos;éditeur
+          n&apos;exerce aucun contrôle.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="Données personnelles et cookies">
+        <p>
+          Le traitement des données personnelles est décrit dans la{" "}
+          <Link href="/confidentialite" className="font-medium text-royal-signal underline underline-offset-2">
             politique de confidentialité
           </Link>
+          . L&apos;usage des cookies est décrit dans la{" "}
+          <Link href="/cookies" className="font-medium text-royal-signal underline underline-offset-2">
+            politique de cookies
+          </Link>
+          .
+        </p>
+      </LegalSection>
+
+      <LegalSection title="Règlement des litiges">
+        <p>
+          Tout litige relatif à l&apos;utilisation de ce site est soumis au droit belge. En cas de
+          litige, les tribunaux de l&apos;arrondissement judiciaire de {site.legal.arrondissement} sont
+          seuls compétents.
+        </p>
+        <p>
+          Conformément au droit européen, les consommateurs disposent également de la plateforme de
+          règlement en ligne des litiges de la Commission européenne :{" "}
+          <a
+            href="https://ec.europa.eu/consumers/odr"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-royal-signal underline underline-offset-2"
+          >
+            ec.europa.eu/odr
+          </a>
           .
         </p>
       </LegalSection>
     </LegalPage>
   );
 }
-

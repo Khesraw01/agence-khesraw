@@ -206,8 +206,7 @@ export default function ContactForm({
             aria-describedby={errors.consent ? "consent-error" : undefined}
           />
           <label htmlFor="consent" className="text-[15px] leading-snug text-slate-caption">
-            J&apos;accepte que {site.name} utilise ces informations uniquement pour me recontacter au
-            sujet de ma demande.{" "}
+            J&apos;accepte que mes données soient utilisées pour répondre à ma demande.{" "}
             <Link href="/confidentialite" className="font-medium text-royal-signal underline underline-offset-2">
               Politique de confidentialité
             </Link>
@@ -238,6 +237,11 @@ export default function ContactForm({
       >
         {status === "loading" ? "Envoi en cours…" : submitLabel}
       </button>
+
+      <p className="text-[13px] leading-snug text-slate-caption">
+        Vos données servent uniquement à vous répondre. Elles ne sont ni vendues ni partagées. Vous pouvez
+        demander leur suppression à tout moment.
+      </p>
     </form>
   );
 }

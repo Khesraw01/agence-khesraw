@@ -47,3 +47,7 @@ next-env.d.ts
 
 .vercel
 .env*
+
+# pack de lancement (documents privés : contrats, TVA, modèles) — ne pas publier
+/pack-lancement-khesraw
+/pack-lancement-khesraw.zip

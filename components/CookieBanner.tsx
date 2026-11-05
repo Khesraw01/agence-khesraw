@@ -44,14 +44,13 @@ export default function CookieBanner() {
     >
       <div className="mx-auto flex max-w-[1200px] flex-col gap-4 rounded-2xl border border-stone-divider bg-white p-5 shadow-card md:flex-row md:items-center md:justify-between">
         <p className="text-sm leading-relaxed text-slate-caption">
-          Nous utilisons des cookies strictement nécessaires au fonctionnement
-          du site et, avec votre accord, des cookies de mesure d&apos;audience.
-          Consultez notre{" "}
+          J&apos;utilise des cookies strictement nécessaires au fonctionnement du site et, avec votre
+          accord, des cookies de mesure d&apos;audience. Détails dans la{" "}
           <Link
-            href="/mentions-legales"
+            href="/cookies"
             className="font-medium text-royal-signal underline underline-offset-2"
           >
-            politique de confidentialité
+            politique de cookies
           </Link>
           .
         </p>
@@ -66,7 +65,7 @@ export default function CookieBanner() {
           <button
             type="button"
             onClick={acceptAll}
-            className="rounded-full bg-royal-signal px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-cobalt-glow"
+            className="rounded-full bg-royal-signal px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#1048e0]"
           >
             Tout accepter
           </button>

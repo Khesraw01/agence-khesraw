@@ -59,6 +59,11 @@ export default function Footer() {
                   {labels.privacy}
                 </Link>
               </li>
+              <li>
+                <Link href="/cookies" className="inline-block py-2 transition-colors hover:text-white">
+                  Cookies
+                </Link>
+              </li>
               <li className="py-2 text-white/65">TVA : {site.vat}</li>
             </ul>
           </div>
